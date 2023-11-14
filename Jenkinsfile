@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven 'jenkins-maven'
+        Maven 'jenkins-maven'
     }
 
     environment {
@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/septianrezaandrianto/rnd-spring-boot-3']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/septianrezaandrianto/rnd-spring-boot-3']])
                 bat 'mvn clean install'
                 echo 'Git Checkout Completed'
             }

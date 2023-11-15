@@ -1,5 +1,5 @@
 # For Java 17, try this
-FROM openjdk:17-alpine
+FROM docker.io/library/openjdk:17-alpine
 
 # Refer to Maven build -> finalName
 ARG JAR_FILE=target/springboot-3-0.0.1-SNAPSHOT.jar

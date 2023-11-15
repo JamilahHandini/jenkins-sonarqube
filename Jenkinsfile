@@ -31,7 +31,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    bat 'docker build -t jamilahhandini/rnd-springboot-3.0 .'
+                    bat 'docker build -t jjhandini/rnd-springboot-3.0 .'
                     echo 'Build Docker Image Completed'
                 }
             }
@@ -43,7 +43,7 @@ pipeline {
                     withCredentials([string(credentialsId: 'dockerhub-pwd', variable: 'dockerhub-password')]) {
                         bat ''' docker login -u jjhandini -p "%dockerhub-password%" '''
                     }
-                    bat 'docker push jamilahhandini/rnd-springboot-3.0'
+                    bat 'docker push jjhandini/rnd-springboot-3.0'
                 }
             }
         }
@@ -51,7 +51,7 @@ pipeline {
         stage ('Docker Run') {
             steps {
                 script {
-                    bat 'docker run -d --name rnd-springboot-3.0 -p 8099:8080 jamilahhandini/rnd-springboot-3.0'
+                    bat 'docker run -d --name rnd-springboot-3.0 -p 8099:8080 jjhandini/rnd-springboot-3.0'
                     echo 'Docker Run Completed'
                 }
             }
